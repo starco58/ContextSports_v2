@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  # Routes for the Play_response resource:
-  # devise_for :users
+  devise_for :users
 
   root 'players#index'
+  # Routes for the Play_response resource:
   # CREATE
   get('/play_responses/new', { :controller => 'play_responses', :action => 'new' })
   get('/create_play_response', { :controller => 'play_responses', :action => 'create' })
