@@ -1,0 +1,97 @@
+<div class="page-header">
+  <h1>Add Event</h1>
+</div>
+
+<% if @event.errors.any? %>
+  <% @event.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+
+<form action="/create_event" class="form-horizontal">
+
+  <!-- Label and input for game -->
+  <div class="form-group">
+
+    <label for="game" class="col-sm-2 control-label">
+      Game
+    </label>
+    <div class="col-sm-10">
+
+      <input type="text" id="game" name="game" placeholder="Game" class="form-control" value="<%= @event.game %>">
+
+    </div>
+
+  </div>
+
+
+  <!-- Label and input for date -->
+  <div class="form-group">
+
+    <label for="date" class="col-sm-2 control-label">
+      Date
+    </label>
+    <div class="col-sm-10">
+
+      <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @event.date %>">
+
+    </div>
+
+  </div>
+
+
+  <!-- Label and input for game_time -->
+  <div class="form-group">
+
+    <label for="game_time" class="col-sm-2 control-label">
+      Game time
+    </label>
+    <div class="col-sm-10">
+
+      <input type="text" id="game_time" name="game_time" placeholder="Game time" class="form-control" value="<%= @event.game_time %>">
+
+    </div>
+
+  </div>
+
+
+  <!-- Label and input for home_team -->
+  <div class="form-group">
+
+    <label for="home_team" class="col-sm-2 control-label">
+      Home team
+    </label>
+    <div class="col-sm-10">
+
+      <input type="text" id="home_team" name="home_team" placeholder="Home team" class="form-control" value="<%= @event.home_team %>">
+
+    </div>
+
+  </div>
+
+
+  <!-- Label and input for away_team -->
+  <div class="form-group">
+
+    <label for="away_team" class="col-sm-2 control-label">
+      Away team
+    </label>
+    <div class="col-sm-10">
+
+      <input type="text" id="away_team" name="away_team" placeholder="Away team" class="form-control" value="<%= @event.away_team %>">
+
+    </div>
+
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" value="Create Event" class="btn btn-primary">
+    </div>
+  </div>
+</form>

@@ -1,0 +1,96 @@
+<div class="page-header">
+  <h1>Edit Play Response #<%= @play_response.id %></h1>
+</div>
+
+<% if @play_response.errors.any? %>
+  <% @play_response.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<form action="/update_play_response/<%= @play_response.id %>" class="form-horizontal">
+
+  <!-- Label and input for play_id -->
+  <div class="form-group">
+
+    <label for="play_id" class="col-sm-2 control-label">
+      Play
+    </label>
+    <div class="col-sm-10">
+
+      <input type="text" id="play_id" name="play_id" placeholder="Play" class="form-control" value="<%= @play_response.play_id %>">
+
+    </div>
+
+  </div>
+
+
+  <!-- Label and input for player_id -->
+  <div class="form-group">
+
+    <label for="player_id" class="col-sm-2 control-label">
+      Player
+    </label>
+    <div class="col-sm-10">
+
+      <input type="text" id="player_id" name="player_id" placeholder="Player" class="form-control" value="<%= @play_response.player_id %>">
+
+    </div>
+
+  </div>
+
+
+  <!-- Label and input for user_id -->
+  <div class="form-group">
+
+    <label for="user_id" class="col-sm-2 control-label">
+      User
+    </label>
+    <div class="col-sm-10">
+
+      <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @play_response.user_id %>">
+
+    </div>
+
+  </div>
+
+
+  <!-- Label and input for player_responible -->
+  <div class="form-group">
+
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label for="player_responible">
+          <input type="checkbox" id="player_responible" name="player_responible" value="1" <%= "checked" if @play_response.player_responible %>>
+          Player responible
+        </label>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- Label and input for comment -->
+  <div class="form-group">
+
+    <label for="comment" class="col-sm-2 control-label">
+      Comment
+    </label>
+    <div class="col-sm-10">
+
+      <textarea id="comment" name="comment" placeholder="Comment" class="form-control" rows="3"><%= @play_response.comment %></textarea>
+
+    </div>
+
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" value="Update Play Response" class="btn btn-primary">
+    </div>
+  </div>
+</form>

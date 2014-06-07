@@ -1,0 +1,64 @@
+<div class="page-header">
+  <h1>Play responses</h1>
+</div>
+
+
+<p><a href="/play_responses/new" class="btn btn-primary">Add a New Play Response</a></p>
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+
+      <th>Play</th>
+
+      <th>Player</th>
+
+      <th>User</th>
+
+      <th>Player responible</th>
+
+      <th>Comment</th>
+
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @play_responses.each do |play_response| %>
+      <tr>
+
+        <td><%= play_response.play_id %></td>
+
+        <td><%= play_response.player_id %></td>
+
+        <td><%= play_response.user_id %></td>
+
+        <td><%= play_response.player_responible %></td>
+
+        <td><%= play_response.comment %></td>
+
+
+        <td>
+          <a href="/play_responses/<%= play_response.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/play_responses/<%= play_response.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/delete_play_response/<%= play_response.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
