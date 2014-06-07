@@ -10,7 +10,7 @@
   <thead>
     <tr>
 
-      <th>Game</th>
+      <th>Sport</th>
 
       <th>Date</th>
 
@@ -32,9 +32,9 @@
 
         <td><%= event.game %></td>
 
-        <td><%= event.date %></td>
+        <td><%= event.date.strftime("%b %e, %Y") %></td>
 
-        <td><%= event.game_time %></td>
+        <td><%= event.game_time.strftime("%l:%M%p EST")  %></td>
 
         <td><%= event.home_team %></td>
 

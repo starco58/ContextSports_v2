@@ -10,11 +10,11 @@
   <thead>
     <tr>
 
+      <th></th>
+
       <th>Player name</th>
 
       <th>Player team</th>
-
-      <th>Player image</th>
 
       <th></th>
       <th></th>
@@ -26,12 +26,11 @@
     <% @players.each do |player| %>
       <tr>
 
+        <td><img src="<%= player.player_image %>" width="60"></td>
+
         <td><%= player.player_name %></td>
 
         <td><%= player.player_team %></td>
-
-        <td><%= player.player_image %></td>
-
 
         <td>
           <a href="/players/<%= player.id %>" class="btn btn-primary">
