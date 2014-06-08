@@ -1,0 +1,51 @@
+<div class="page-header">
+  <h1>Edit Owned Player #<%= @owned_player.id %></h1>
+</div>
+
+<% if @owned_player.errors.any? %>
+  <% @owned_player.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<form action="/update_owned_player/<%= @owned_player.id %>" class="form-horizontal">
+
+  <!-- Label and input for user_id -->
+  <div class="form-group">
+
+    <label for="user_id" class="col-sm-2 control-label">
+      User
+    </label>
+    <div class="col-sm-10">
+
+      <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @owned_player.user_id %>">
+
+    </div>
+
+  </div>
+
+
+  <!-- Label and input for player_id -->
+  <div class="form-group">
+
+    <label for="player_id" class="col-sm-2 control-label">
+      Player
+    </label>
+    <div class="col-sm-10">
+
+      <input type="text" id="player_id" name="player_id" placeholder="Player" class="form-control" value="<%= @owned_player.player_id %>">
+
+    </div>
+
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" value="Update Owned Player" class="btn btn-primary">
+    </div>
+  </div>
+</form>

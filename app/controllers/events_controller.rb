@@ -71,4 +71,12 @@ class EventsController < ApplicationController
     redirect_to "/events", :notice => "Event deleted."
 
   end
+
+  def track_event
+    @event = Event.find(params[:id])
+    @all_plays = Plays.where(play_id['#{@event}'])
+
+  end
+
+
 end

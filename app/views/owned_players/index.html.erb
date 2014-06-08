@@ -1,0 +1,52 @@
+<div class="page-header">
+  <h1>Owned players</h1>
+</div>
+
+
+<p><a href="/owned_players/new" class="btn btn-primary">Add a New Owned Player</a></p>
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+
+      <th>User</th>
+
+      <th>Player</th>
+
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @owned_players.each do |owned_player| %>
+      <tr>
+
+        <td><%= owned_player.user_id %></td>
+
+        <td><%= owned_player.player_id %></td>
+
+
+        <td>
+          <a href="/owned_players/<%= owned_player.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/owned_players/<%= owned_player.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/delete_owned_player/<%= owned_player.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
