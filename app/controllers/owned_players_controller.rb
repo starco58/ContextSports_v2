@@ -14,7 +14,7 @@ class OwnedPlayersController < ApplicationController
   def create
     @owned_player = OwnedPlayer.new
 
-    @owned_player.user_id = params[:user_id]
+    @owned_player.user_id = current_user.id
 
     @owned_player.player_id = params[:player_id]
 

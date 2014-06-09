@@ -93,6 +93,7 @@ Rails.application.routes.draw do
   # CREATE
   get('/owned_players/new', { :controller => 'owned_players', :action => 'new' })
   get('/create_owned_player', { :controller => 'owned_players', :action => 'create' })
+  get('/create_owned_player/:id', { :controller => 'owned_players', :action => 'create' })
 
   # READ
   get('/owned_players', { :controller => 'owned_players', :action => 'index' })
