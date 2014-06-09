@@ -59,4 +59,9 @@ class OwnedPlayersController < ApplicationController
     redirect_to "/owned_players", :notice => "Owned player deleted."
 
   end
+
+  def my_player
+    @my_player = OwnedPlayer.find(params[:id])
+  end
+
 end

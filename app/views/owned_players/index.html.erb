@@ -10,9 +10,9 @@
   <thead>
     <tr>
 
-      <th>User</th>
-
       <th>Player</th>
+
+      <th>User</th>
 
       <th></th>
       <th></th>
@@ -24,10 +24,9 @@
     <% @owned_players.each do |owned_player| %>
       <tr>
 
+        <td><%= owned_player.player.player_name %></td>
+
         <td><%= owned_player.user.email %></td>
-
-        <td><%= owned_player.player_id %></td>
-
 
         <td>
           <a href="/owned_players/<%= owned_player.id %>" class="btn btn-primary">
