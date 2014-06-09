@@ -1,35 +1,16 @@
 <% @my_players.each do |player| %>
 <div class="page-header">
-  <h1>player #<%= player.id %></h1>
+  <h1><%= player.player_name %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt>Player</dt>
   <dd><img src="<%= player.player_image %>" width="360"></dd>
   <dt></dt><dd></dd>
-  <dt>Info</dt>
-  <dd><%= player.player_name %></dd>
 </dl>
-
-<div>
-  <form action="/create_owned_player" class="form-horizontal">
-      <div class="col-sm-offset-2 col-sm-10">
-      <input type="submit" value="Add to My Players" class="btn btn-warning">
-  </form>
-</div>
-
 
 <form action="/create_play_response" class="form-horizontal">
   <!-- Label and input for content -->
-  <div class="form-group">
-    <label for="content" class="col-sm-2 control-label">
-      Track Plays
-    </label>
-
-    <div class="col-sm-10">
-      <textarea id="play_response" name="play_response" placeholder="play_response" class="form-control" rows="3"></textarea>
-    </div>
-  </div>
 
   <!-- Label and input for player_id -->
   <div class="form-group">
