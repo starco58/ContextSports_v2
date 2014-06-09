@@ -65,7 +65,9 @@ class PlayersController < ApplicationController
   end
 
   def my_players
-    @players = current_user.my_players.player_id
-    render 'index'
+
+    @my_players = current_user.my_players
+
   end
+
 end

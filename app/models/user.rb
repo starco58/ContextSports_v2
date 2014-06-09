@@ -4,13 +4,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :owned_players, :class_name => "Player", :foreign_key => "user_id", :dependent => :destroy
-
-  has_many :my_players, :through => :owned_players, :source => :players
-
   has_many :players, :dependent => :destroy
 
-  has_many :responses, :through => :players, :source => :play_responses
+  has_many :owned_players
+  # has_many :owned_players, :class_name => "Player", :foreign_key => "user_id", :dependent => :destroy
+
+  has_many :my_players, :through => :owned_players, :source => :player
+
+  has_many :responses, :through => :players, :source => :play_response
 
   # has_many :owned_players, :through => :owned_players, :source => :player
 
