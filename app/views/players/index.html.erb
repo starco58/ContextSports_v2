@@ -33,6 +33,12 @@
         <td><%= player.player_team %></td>
 
         <td>
+          <a href="/create_owned_player/<%= player.id %>" class="btn btn-success">
+            <i class="fa fa-plus"></i>
+          </a>
+        </td>
+
+        <td>
           <a href="/players/<%= player.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>
           </a>

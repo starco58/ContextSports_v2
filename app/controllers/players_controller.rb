@@ -63,4 +63,9 @@ class PlayersController < ApplicationController
     redirect_to "/players", :notice => "Player deleted."
 
   end
+
+  def my_players
+    @players = current_user.owned_players
+    render 'index'
+  end
 end

@@ -7,7 +7,7 @@ class Player < ActiveRecord::Base
   belongs_to :team
 
   has_many :play_responses, :through => :plays, :source => :events
-  has_many :owners, :through => :owned_players, :source => :user
+  has_many :owned_players, :through => :owned_players, :source => :player
 
   validates :play, :presence => true, :uniqueness => { :scope => :play_response }
   validates :user_id, :presence => true

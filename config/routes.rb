@@ -1,21 +1,4 @@
 Rails.application.routes.draw do
-  # Routes for the Owned_player resource:
-  # CREATE
-  get('/owned_players/new', { :controller => 'owned_players', :action => 'new' })
-  get('/create_owned_player', { :controller => 'owned_players', :action => 'create' })
-
-  # READ
-  get('/owned_players', { :controller => 'owned_players', :action => 'index' })
-  get('/owned_players/:id', { :controller => 'owned_players', :action => 'show' })
-
-  # UPDATE
-  get('/owned_players/:id/edit', { :controller => 'owned_players', :action => 'edit' })
-  get('/update_owned_player/:id', { :controller => 'owned_players', :action => 'update' })
-
-  # DELETE
-  get('/delete_owned_player/:id', { :controller => 'owned_players', :action => 'destroy' })
-  #------------------------------
-
   devise_for :users
   root 'players#index'
   # Routes for the Play_response resource:
@@ -101,7 +84,32 @@ Rails.application.routes.draw do
 
   # DELETE
   get('/delete_player/:id', { :controller => 'players', :action => 'destroy' })
+
+
+  # get('/my_players',         { :controller => 'players', :action => 'user' })
+  get('/my_players',    { :controller => 'players', :action => 'my_players' })
+
+  # Routes for the Owned_player resource:
+  # CREATE
+  get('/owned_players/new', { :controller => 'owned_players', :action => 'new' })
+  get('/create_owned_player', { :controller => 'owned_players', :action => 'create' })
+
+  # READ
+  get('/owned_players', { :controller => 'owned_players', :action => 'index' })
+  get('/owned_players/:id', { :controller => 'owned_players', :action => 'show' })
+
+  # UPDATE
+  get('/owned_players/:id/edit', { :controller => 'owned_players', :action => 'edit' })
+  get('/update_owned_player/:id', { :controller => 'owned_players', :action => 'update' })
+
+  # DELETE
+  get('/delete_owned_player/:id', { :controller => 'owned_players', :action => 'destroy' })
   #------------------------------
+
+
+  #------------------------------
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -117,7 +125,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  # get ('/track_event/:id', { :controller => 'events', :action => 'track_event'})
+
   # Example resource route with options:
   #   resources :products do
   #     member do

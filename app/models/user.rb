@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :players, :dependent => :destroy
 
-  has_many :owned_players, :through => :owned_players, :source => :player
+  # has_many :owned_players, :through => :owned_players, :source => :player
 
   # has_many :followings_where_follower, :class_name => "Owned_players", :foreign_key => "owned_player_id"
 
