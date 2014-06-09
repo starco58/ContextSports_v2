@@ -18,7 +18,7 @@ class PlayResponsesController < ApplicationController
 
     @play_response.player_id = params[:player_id]
 
-    @play_response.user_id = params[:user_id]
+    @play_response.user_id = current_user.id
 
     @play_response.player_responible = params[:player_responible]
 
