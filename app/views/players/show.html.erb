@@ -17,3 +17,28 @@
 
 
 </dl>
+
+<% @turnovers.each do |play| %>
+  <%= play.event.game_time.strftime("%l:%M%p EST") %>
+  <%= play.event.date.strftime("%b %e, %Y") %>
+
+    <% play.play_responses.each do |play_response| %>
+
+      <p> <%= play_response.comment %> </p>
+
+    <% end %>
+
+  <% end %>
+
+
+<% @touchdowns.each do |play| %>
+  <%= play.event.game_time.strftime("%l:%M%p EST") %>
+  <%= play.event.date.strftime("%b %e, %Y") %>
+
+    <% play.play_responses.each do |play_response| %>
+
+      <p> <%= play_response.comment %> </p>
+
+    <% end %>
+
+  <% end %>

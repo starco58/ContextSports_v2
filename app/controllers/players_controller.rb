@@ -5,6 +5,11 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
+
+    @turnovers = @player.plays.where(:play_type => "Turnover")
+    @touchdowns = @player.plays.where(:play_type => "Touchdown")
+    # @number_of_touchdowns_responsible = @touchdowns.play_responses.where(:player_responible => "true")
+
   end
 
   def new
