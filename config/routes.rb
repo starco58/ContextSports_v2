@@ -88,7 +88,7 @@ Rails.application.routes.draw do
 
   # get('/my_players',         { :controller => 'players', :action => 'user' })
   get('/my_players',    { :controller => 'players', :action => 'my_players' })
-
+  get('/my_players_plays',    { :controller => 'players', :action => 'my_players_plays' })
   # Routes for the Owned_player resource:
   # CREATE
   get('/owned_players/new', { :controller => 'owned_players', :action => 'new' })

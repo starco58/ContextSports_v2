@@ -1,0 +1,70 @@
+<% @my_players_plays.each do |player| %>
+<div class="page-header">
+  <h1><%= player.player_name %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Player</dt>
+  <dd><img src="<%= player.player_image %>" width="360"></dd>
+  <dt></dt><dd></dd>
+</dl>
+
+<form action="/create_play_response" class="form-horizontal">
+  <!-- Label and input for content -->
+
+  <!-- Label and input for player_id -->
+  <div class="form-group">
+    <div class="col-sm-10">
+      <input type="hidden" id="player_id" name="player_id" placeholder="player" class="form-control" value="<%= player.id %>">
+    </div>
+  </div>
+
+
+  <!-- Label and input for user_id -->
+  <div class="form-group">
+      <div class="col-sm-10">
+
+      <input type ="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value= "<%= current_user.id %>">
+
+    </div>
+  </div>
+
+<div>
+<% @turnovers.each do |play| %>
+  <%= play.event.game_time.strftime("%l:%M%p EST") %>
+  <%= play.event.date.strftime("%b %e, %Y") %>
+
+
+    <% play.play_responses.each do |play_response| %>
+      <p> <%= play_response.player_responible %> </p>
+      <p> <%= play_response.comment %> </p>
+
+    <% end %>
+
+  <% end %>
+
+
+<% @touchdowns.each do |play| %>
+  <%= play.event.game_time.strftime("%l:%M%p EST") %>
+  <%= play.event.date.strftime("%b %e, %Y") %>
+
+
+    <% play.play_responses.each do |play_response| %>
+      <p> <%= play_response.player_responible %> </p>
+      <p> <%= play_response.comment %> </p>
+
+    <% end %>
+
+  <% end %>
+</div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" value="Create Response" class="btn btn-primary">
+    </div>
+  </div>
+</form>
+
+<% end %>
+
+

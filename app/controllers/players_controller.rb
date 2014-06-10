@@ -75,4 +75,13 @@ class PlayersController < ApplicationController
 
   end
 
+  def my_players_plays
+
+    @my_players = current_user.my_players
+
+    @turnovers = @my_players.plays.where(:play_type => "Turnover")
+    @touchdowns = @my_players.plays.where(:play_type => "Touchdown")
+
+  end
+
 end

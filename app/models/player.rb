@@ -6,6 +6,7 @@ class Player < ActiveRecord::Base
   has_many :plays
 
   has_many :my_players, :through => :owned_players, :source => :user
+  has_many :my_players_plays, :through => :owned_players, :source => :user
   has_many :play_responses, :through => :plays
 
   # has_many :owned_players, :class_name => "Player", :foreign_key => "player_id", :dependent => :destroy

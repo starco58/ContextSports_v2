@@ -7,38 +7,51 @@
   <dt>Player name</dt>
   <dd><%= @player.player_name %></dd>
 
-
-  <dt>Player team</dt>
-  <dd><%= @player.player_team %></dd>
-
-
-  <dt>Player image</dt>
-  <dd><%= @player.player_image %></dd>
-
+  <dt></dt>
+  <dd><img src="<%= @player.player_image %>" width="360"></dd>
 
 </dl>
 
-<% @turnovers.each do |play| %>
-  <%= play.event.game_time.strftime("%l:%M%p EST") %>
-  <%= play.event.date.strftime("%b %e, %Y") %>
+<div>
+  <dl class="dl-horizontal">
+    <% @turnovers.each do |play| %>
+        <dt>Play Type</dt>
+        <dd><%= play.play_type %></dd>
 
-    <% play.play_responses.each do |play_response| %>
+        <dt>Event Details</dt>
+        <dd>
+            <%= play.event.game_time.strftime("%l:%M%p EST") %>
+            <%= play.event.date.strftime("%b %e, %Y") %>
+        </dd>
 
-      <p> <%= play_response.comment %> </p>
+        <dt>Play Details</dt>
+        <dt><% play.play_responses.each do |play_response| %></dt>
+          <dd><%= play_response.play_id %> </dd>
+          <dd> <%= play_response.player_responible %> </dd>
+          <dd> <%= play_response.comment %> </dd>
+
+      <% end %>
 
     <% end %>
+  </dl>
 
-  <% end %>
+    <dl class="dl-horizontal">
+      <% @touchdowns.each do |play| %>
+          <dt>Play Type</dt>
+          <dd><%= play.play_type %></dd>
 
+          <dt>Event Details</dt>
+          <dd>
+            <%= play.event.game_time.strftime("%l:%M%p EST") %>
+            <%= play.event.date.strftime("%b %e, %Y") %>
+          </dd>
+          <dt>Play Details</dt>
+          <dt><% play.play_responses.each do |play_response| %></dt>
+              <dd> <%= play_response.play_id %> </dd>
+              <dd> <%= play_response.player_responible %> </dd>
+              <dd> <%= play_response.comment %> </dd>
 
-<% @touchdowns.each do |play| %>
-  <%= play.event.game_time.strftime("%l:%M%p EST") %>
-  <%= play.event.date.strftime("%b %e, %Y") %>
-
-    <% play.play_responses.each do |play_response| %>
-
-      <p> <%= play_response.comment %> </p>
+      <% end %>
 
     <% end %>
-
-  <% end %>
+  </dl>
