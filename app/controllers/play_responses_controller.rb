@@ -14,9 +14,9 @@ class PlayResponsesController < ApplicationController
   def create
     @play_response = PlayResponse.new
 
-    @play_response.play_id = params[:play_id]
+    @play_response.player_id = params[:id]
 
-    @play_response.player_id = params[:player_id]
+    @play_response.play_id = params[:play_id]
 
     @play_response.user_id = current_user.id
 
