@@ -4,6 +4,7 @@ class Player < ActiveRecord::Base
 
   has_many :users
   has_many :plays
+  has_many :owned_players
 
   has_many :my_players, :through => :owned_players, :source => :user
   has_many :my_players_plays, :through => :owned_players, :source => :user

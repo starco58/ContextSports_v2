@@ -4,7 +4,7 @@ class OwnedPlayersController < ApplicationController
   end
 
   def show
-    @owned_player = OwnedPlayer.find(params[:id])
+    @owned_player = current_user.id
   end
 
   def new
@@ -14,10 +14,9 @@ class OwnedPlayersController < ApplicationController
   def create
     @owned_player = OwnedPlayer.new
 
+    @owned_player.player_id = params[:id]
+
     @owned_player.user_id = current_user.id
-
-    @owned_player.player_id = params[:player_id]
-
 
 
     if @owned_player.save
