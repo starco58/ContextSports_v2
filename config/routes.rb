@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'players#index'
+  root 'about#info'
+
+  get('/about',   { :controller => 'about', :action => 'info'})
   # Routes for the Play_response resource:
   # CREATE
   get('/play_responses/new', { :controller => 'play_responses', :action => 'new' })
