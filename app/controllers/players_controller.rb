@@ -2,6 +2,8 @@ class PlayersController < ApplicationController
   def index
     @players = Player.all
 
+    @players_team = @players.where(:players_team)
+
   end
 
   def show

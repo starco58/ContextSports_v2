@@ -14,8 +14,6 @@
 
       <th>Player name</th>
 
-      <th>Player team</th>
-
       <th>Add Player to My Players</th>
       <th>See Player's Stats</th>
     </tr>
@@ -25,11 +23,9 @@
     <% @players.each do |player| %>
       <tr>
 
-        <td><img src="<%= player.player_image %>" width="60"></td>
+        <td><img src="<%= player.player_image %>" width="90"></td>
 
         <td><%= player.player_name %></td>
-
-        <td><%= player.player_team %></td>
 
         <td>
           <a href="/create_owned_player/<%= player.id %>" type="submit" class="btn btn-success">
