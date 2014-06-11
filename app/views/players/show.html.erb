@@ -12,46 +12,82 @@
 
 </dl>
 
-<div>
-  <dl class="dl-horizontal">
+<table class="table table-hover">
+<h3> TURNOVERS <h3>
+  <thead>
+    <tr>
+
+      <th>Event Details</th>
+
+      <th>Play Type</th>
+
+      <th>Play ID</th>
+
+      <th>Player Responsible</th>
+
+      <th>Comments</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
     <% @turnovers.each do |play| %>
-        <dt>Play Type</dt>
-        <dd><%= play.play_type %></dd>
+      <tr>
 
-        <dt>Event Details</dt>
-        <dd>
+        <td>
             <%= play.event.game_time.strftime("%l:%M%p EST") %>
             <%= play.event.date.strftime("%b %e, %Y") %>
-        </dd>
+        </td>
 
-        <dt>Play Details</dt>
-        <dt><% play.play_responses.each do |play_response| %></dt>
-          <dd><%= play_response.play_id %> </dd>
-          <dd> <%= play_response.player_responible %> </dd>
-          <dd> <%= play_response.comment %> </dd>
+        <td><%= play.play_type %></td>
 
+        <% play.play_responses.each do |play_response| %>
+          <td> <%= play_response.play_id %> </td>
+          <td> <%= play_response.player_responible %> </td>
+          <td> <%= play_response.comment %> </td>
+      </tr>
       <% end %>
-
     <% end %>
-  </dl>
+  </tbody>
+</table>
 
-    <dl class="dl-horizontal">
-      <% @touchdowns.each do |play| %>
-          <dt>Play Type</dt>
-          <dd><%= play.play_type %></dd>
 
-          <dt>Event Details</dt>
-          <dd>
+<table class="table table-hover">
+<h3> TOUCHDOWNS <h3>
+  <thead>
+    <tr>
+
+      <th>Event Details</th>
+
+      <th>Play Type</th>
+
+      <th>Play ID</th>
+
+      <th>Player Responsible</th>
+
+      <th>Comments</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @touchdowns.each do |play| %>
+      <tr>
+
+        <td>
             <%= play.event.game_time.strftime("%l:%M%p EST") %>
             <%= play.event.date.strftime("%b %e, %Y") %>
-          </dd>
-          <dt>Play Details</dt>
-          <dt><% play.play_responses.each do |play_response| %></dt>
-              <dd> <%= play_response.play_id %> </dd>
-              <dd> <%= play_response.player_responible %> </dd>
-              <dd> <%= play_response.comment %> </dd>
+        </td>
 
+        <td><%= play.play_type %></td>
+
+        <% play.play_responses.each do |play_response| %>
+             <td><%= play_response.play_id %> </td>
+             <td><%= play_response.player_responible %></td>
+             <td><%= play_response.comment %></td>
+
+      </tr>
       <% end %>
-
     <% end %>
-  </dl>
+  </tbody>
+</table>
