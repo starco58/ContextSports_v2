@@ -20,7 +20,7 @@ class OwnedPlayersController < ApplicationController
 
 
     if @owned_player.save
-      redirect_to "/owned_players", :notice => "Owned player created successfully."
+      redirect_to "/my_players", :notice => "Successfully Added to My Players."
     else
       render 'new'
     end
