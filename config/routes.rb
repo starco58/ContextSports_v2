@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # Routes for the Play_response resource:
   # CREATE
   get('/play_responses/new', { :controller => 'play_responses', :action => 'new' })
+  get('/play_responses/new/:id', { :controller => 'play_responses', :action => 'new' })
   get('/create_play_response', { :controller => 'play_responses', :action => 'create' })
 
   # READ
