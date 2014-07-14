@@ -1,22 +1,20 @@
-<% @my_players.each do |player| %>
 <div class="page-header">
-  <h1><%= player.player_name %></h1>
+  <h1>My Players</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt></dt>
-  <dd><img src="<%= player.player_image %>" width="360"></dd>
-  <dt></dt><dd></dd>
-</dl>
-
-<form action="/players/<%= player.id %>" class="form-horizontal">
-  <!-- Label and input for content -->
-
-   <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <input type="submit" value="Player's Stats" class="btn btn-primary">
-      </div>
-    </div>
-  </form>
-
-<% end %>
+<div class="row">
+  <table class="table table-striped">
+    <tbody>
+      <% @my_players.each do |player| %>
+      <tr>
+        <td style="vertical-align:middle" class="col-md-4">
+        <div class="btn-group">
+          <a class="btn btn-warning" href="/players/<%= player.id %>"><i class="glyphicon glyphicon-search"></i> Stats </a>
+        </div></td>
+        <td style="vertical-align:middle"> <%= player.player_name %> </td>
+        <td style="vertical-align:middle"> <% if player.player_image.length > 0 %> <img src="<%= player.player_image %>" width="90" class="img-thumbnail pull-right" /> <% end %> </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
