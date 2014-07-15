@@ -1,45 +1,97 @@
+<script type="text/javascript">
+$('#teams .typeahead').typeahead([{
+  name: 'teams',
+  local: [
+  <% @teams.each do |team| %>
+  '<%= team.team_name %>',
+  <% end %>
+]
+}]);
+</script>
+
 <div class="page-header">
-  <h1>Players</h1>
+  <h1>Players
+  <button class="btn btn-info" data-toggle="modal" data-target="#newPlayerModal" alt="Add A New Player">
+    <i class="glyphicon glyphicon-plus-sign"></i> Add
+  </button></h1>
+</div>
+<div class="row">
+  <% @players.group_by(&:player_team).each do |player_team,players| %>
+  <h3><%= @teams[player_team-1].team_name %></h3>
+  <table class="table table-striped">
+    <tbody>
+      <% players.each do |player| %>
+      <tr>
+        <td style="vertical-align:middle" class="col-md-4">
+        <div class="btn-group">
+          <a class="btn btn-success" href="/create_owned_player/<%= player.id %>"><i class="glyphicon glyphicon-plus"></i> Roster </a>
+          <a class="btn btn-warning" href="/players/<%= player.id %>"><i class="glyphicon glyphicon-search"></i> Stats </a>
+        </div></td>
+        <td style="vertical-align:middle"> <%= player.player_name %> </td>
+        <td style="vertical-align:middle"> <% if player.player_image.length > 0 %> <img src="<%= player.player_image %>" width="90" class="img-thumbnail pull-right" /> <% end %> </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
 </div>
 
+<div class="modal fade" id="newPlayerModal">
+  <div class="modal-dialog">
+    <form action="/create_player" class="form-horizontal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title">New Player</h4>
+        </div>
+        <div class="modal-body">
 
-<p><a href="/players/new" class="btn btn-primary">Add a New Player</a></p>
+          <!-- Label and input for player_name -->
+          <div class="form-group">
 
+            <label for="player_name" class="col-sm-4 control-label"> Name </label>
+            <div class="col-sm-8">
 
-<table class="table table-hover">
-  <thead>
-    <tr>
+              <input type="text" id="player_name" name="player_name" placeholder="Player name" class="form-control" value="<%= @player.player_name %>">
 
-      <th></th>
+            </div>
 
-      <th>Player name</th>
+          </div>
 
-      <th>Add Player to My Players</th>
-      <th>See Player's Stats</th>
-    </tr>
-  </thead>
+          <!-- Label and input for player_team -->
+          <div class="form-group">
 
-  <tbody>
-    <% @players.each do |player| %>
-      <tr>
+            <label for="player_team" class="col-sm-4 control-label"> Team </label>
+            <div class="col-sm-8" id="teams">
+              <input class="typeahead form-control" value="<%= @player.player_team %>" type="text" id="player_team" name="player_team" placeholder="Player Team">
+            </div>
 
-        <td><img src="<%= player.player_image %>" width="90"></td>
+          </div>
 
-        <td><%= player.player_name %></td>
+          <!-- Label and input for player_image -->
+          <div class="form-group">
 
-        <td>
-          <a href="/create_owned_player/<%= player.id %>" type="submit" class="btn btn-success">
-            <i class="fa fa-plus"></i>
-          </a>
-        </td>
+            <label for="player_image" class="col-sm-4 control-label"> Image </label>
+            <div class="col-sm-8">
 
-        <td>
-          <a href="/players/<%= player.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+              <input type="text" id="player_image" name="player_image" placeholder="Player image" class="form-control" value="<%= @player.player_image %>">
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Close
+          </button>
+          <input type="submit" value="Create Player" class="btn btn-primary">
+        </div>
+      </div><!-- /.modal-content -->
+    </form>
+
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 

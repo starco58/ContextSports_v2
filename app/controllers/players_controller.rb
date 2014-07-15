@@ -1,8 +1,12 @@
 class PlayersController < ApplicationController
   def index
-    @players = Player.all
+    @player = Player.new
+
+    @players = Player.includes(:team)
 
     @players_team = @players.where(:players_team)
+    
+    @teams = Team.all
 
   end
 
@@ -16,7 +20,6 @@ class PlayersController < ApplicationController
   end
 
   def new
-    @player = Player.new
   end
 
   def create
